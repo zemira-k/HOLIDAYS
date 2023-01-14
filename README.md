@@ -13,6 +13,9 @@ https://github.com/zemira-k/HOLIDAYS.git
 API HOLIDAYS:
 https://www.hebcal.com/hebcal?v=1&cfg=json&maj=on&min=on&mod=on&nx=on&year=now&month=x&ss=on&mf=on&c=on&geo=geoname&geonameid=3448439&M=on&s=on
 
+Trello Link:
+https://trello.com/invite/kulalikereactworkspace/ATTIc6aa6bc6bef4246b5094ce44b58d2e6437FC5349‏
+
 # להוריד "פוסט מן" ולבדוק מה זה פוסט מן קולקשן.
 # למצוא ספריה מגניבה שהשדה של התאריכים יהיה מעוצב.
 # לחשוב על בדיקות מסובכות ( הקלדה של תאריך בצורה לא נכונה וכו')
