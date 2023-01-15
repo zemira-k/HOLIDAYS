@@ -1,12 +1,20 @@
 import React, { useEffect, useState } from "react";
-import axios from 'axios';
+import axios from "axios";
 
 export default function MainPage() {
   const GetHebrewDates = (startDate, endDate) => {
     // Assuming date params are YYYY-MM-DD STRINGS!!
     startDate = "2023-01-01";
     endDate = "2023-12-30";
-    //to implement the function correctly, delete the params above and send into the func the correct dates from input
+    {
+      /* to implement the function correctly, delete the params above and send 
+      into the func the correct dates from input  */
+    }
+    {
+      /* currently the Get.Response is being consoled.log, 
+      but once the rendering comps will be ready, we can send it there*/
+    }
+
     try {
       axios
         .get(
