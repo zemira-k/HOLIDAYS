@@ -7,7 +7,7 @@ export default function MainPage() {
     startDate = "2023-01-01";
     endDate = "2023-12-31";
     try {
-      const url = `https://www.hebcal.com/hebcal?v=1&cfg=json&maj=on&min=on&start=${startDate}&end=${endDate}`;
+      const url = `https://www.hebcal.com/hebcal?v=1&mod=on&cfg=json&maj=on&min=on&start=${startDate}&end=${endDate}`;
       const response = await axios.get(url);
       console.log("jewish holidays in range: ", response.data);
     } catch (error) {
