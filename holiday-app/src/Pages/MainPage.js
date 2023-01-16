@@ -5,8 +5,27 @@ export default function MainPage() {
   const [HolidaysInRange, setHolidaysInRange] = useState([]);
   const [StartDate, setStartDate] = useState("");
   const [EndDate, setEndDate] = useState("");
+  const [holidayImages, setHolidayImages] = useState({});
+
+  const getHolidayImages = async (holiday) => {
+    holiday = "pesach";
+    try {
+      const response = await axios.get(
+        `https://api.unsplash.com/search/photos?query=${holiday}&client_id=cceo9DOk_I2Pw-WpqHyXdhPxQto1rWwBysFmolMO5SQ`
+      );
+      setHolidayImages({
+        ...holidayImages,
+        [holiday]: response.data.results[0].urls.small,
+      });
+      const stringImage = Object.values(holidayImages);
+      setHolidayImages(stringImage);
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   const GetHebrewDates = async (startDate, endDate) => {
+    getHolidayImages("");
     // Assuming startDate & endDate are YYYY-MM-DD string formated
     try {
       const url = `https://www.hebcal.com/hebcal?v=1&mod=on&cfg=json&maj=on&start=${startDate}&end=${endDate}`;
@@ -37,6 +56,7 @@ export default function MainPage() {
   };
   return (
     <div>
+      <img src={holidayImages} alt="Logo" />
       <h1>DATES FORMAT "YYYY-MM-DD"</h1>
       <input
         type="text"
