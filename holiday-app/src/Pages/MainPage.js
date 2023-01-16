@@ -9,8 +9,9 @@ export default function MainPage() {
   const GetHebrewDates = async (startDate, endDate) => {
     // Assuming startDate & endDate are YYYY-MM-DD string formated
     try {
-      const url = `https://www.hebcal.com/hebcal?v=1&mod=on&cfg=json&maj=on&min=on&start=${startDate}&end=${endDate}`;
+      const url = `https://www.hebcal.com/hebcal?v=1&mod=on&cfg=json&maj=on&start=${startDate}&end=${endDate}`;
       const response = await axios.get(url);
+      console.log("Holidays: ", response.data.items);
       setHolidaysInRange(response.data.items);
     } catch (error) {
       console.error(error);
@@ -31,6 +32,8 @@ export default function MainPage() {
   };
   const ResetData = () => {
     setHolidaysInRange([]);
+    setStartDate("");
+    setEndDate("");
   };
   return (
     <div>
@@ -56,7 +59,7 @@ export default function MainPage() {
       {Object.keys(HolidaysInRange).length
         ? HolidaysInRange.map((item, ind) => (
             <div id={ind}>
-              Holiday: {item.title}, Date: {item.date} <br />
+              Holiday: {item.hebrew}, Date: {item.date} <br />
             </div>
           ))
         : "There are no holidays"}
