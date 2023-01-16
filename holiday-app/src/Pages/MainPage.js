@@ -58,7 +58,7 @@ export default function MainPage() {
 
       {Object.keys(HolidaysInRange).length
         ? HolidaysInRange.map((item, ind) => (
-            <div id={ind}>
+            <div key={ind}>
               Holiday: {item.hebrew}, Date: {item.date} <br />
             </div>
           ))
