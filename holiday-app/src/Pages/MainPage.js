@@ -5,6 +5,30 @@ export default function MainPage() {
   const [HolidaysInRange, setHolidaysInRange] = useState([]);
   const [StartDate, setStartDate] = useState("");
   const [EndDate, setEndDate] = useState("");
+  const [holidayImages, setHolidayImages] = useState({});
+
+  const getHolidayImages = async (holiday) => {
+    try {
+      const response = await axios.get(
+        `https://api.unsplash.com/search/photos?query=${holiday}&client_id=cceo9DOk_I2Pw-WpqHyXdhPxQto1rWwBysFmolMO5SQ`
+      );
+      return Object.values(response.data.results[0].urls.small).join("");
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  useEffect(() => {
+    var tmpImagesArray = HolidaysInRange;
+    for (let key in HolidaysInRange) {
+      tmpImagesArray[key]["ImageLink"] = getHolidayImages(
+        tmpImagesArray[key].title
+      );
+    }
+    setHolidayImages(tmpImagesArray);
+    console.log("HolidaysInRange --> With Images: ", HolidaysInRange);
+    console.log("tmpImagesArray --> With Images: ", tmpImagesArray);
+  }, [HolidaysInRange]);
 
   const GetHebrewDates = async (startDate, endDate) => {
     // Assuming startDate & endDate are YYYY-MM-DD string formated
@@ -21,11 +45,9 @@ export default function MainPage() {
   const StartDateChanged = (event) => {
     setStartDate(event.target.value);
   };
-
   const EndDateChanged = (event) => {
     setEndDate(event.target.value);
   };
-
   const SearchHolidays = () => {
     // DIANA --> here I would validate that startDate is earlier then endDate
     GetHebrewDates(StartDate, EndDate);
@@ -60,6 +82,7 @@ export default function MainPage() {
         ? HolidaysInRange.map((item, ind) => (
             <div key={ind}>
               Holiday: {item.hebrew}, Date: {item.date} <br />
+              <img src={item.ImageLink} alt={item.title} />
             </div>
           ))
         : "There are no holidays"}
