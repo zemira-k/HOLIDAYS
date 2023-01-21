@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import CardGrid from "../Components/CardGrid";
 import ImageUrl from "../HolidaysImages";
+import HolidayDate from "../Styles/HolidayDate.scss";
 
 export default function MainPage() {
   const [HolidaysInRange, setHolidaysInRange] = useState([]);
@@ -47,38 +48,45 @@ export default function MainPage() {
   };
   return (
     <div>
-      <h1>DATES FORMAT "YYYY-MM-DD"</h1>
-      <input
-        type="text"
-        placeholder="Start Date"
-        onChange={StartDateChanged}
-      ></input>
-      <input
-        type="text"
-        placeholder="End Date"
-        onChange={EndDateChanged}
-      ></input>
-      <button style={{ background: "green" }} onClick={SearchHolidays}>
-        SEARCH HOLIDAYS
-      </button>
-      <button style={{ background: "red" }} onClick={ResetData}>
-        RESET
-      </button>
-      <br />
+      <div className="HolidayDate">
+        <div className="center">
+          <header>Pick Date</header>
+          <h1>DATES FORMAT "YYYY-MM-DD"</h1>
+          <input
+            type="text"
+            placeholder="Start Date"
+            onChange={StartDateChanged}
+          ></input>
+          <input
+            type="text"
+            placeholder="End Date"
+            onChange={EndDateChanged}
+          ></input>
+          <button className="button-85" role="button" onClick={SearchHolidays}>
+            SEARCH HOLIDAYS
+          </button>
+          <button className="button-6" role="button" onClick={ResetData}>
+            RESET
+          </button>
+          <br />
+        </div>
+      </div>
 
-      {Object.keys(HolidaysInRange).length
-        ? HolidaysInRange.map((item, ind) => (
-            <CardGrid
-              key={ind}
-              HebName={item.hebrew}
-              Date={item.date}
-              ImageLink={item.ImageLink}
-              EngName={item.title}
-              Info={item.memo}
-            />
-          ))
-        : "There are no holidays"}
-      <br />
+      <div className="bg">
+        {Object.keys(HolidaysInRange).length
+          ? HolidaysInRange.map((item, ind) => (
+              <CardGrid
+                key={ind}
+                HebName={item.hebrew}
+                Date={item.date}
+                ImageLink={item.ImageLink}
+                EngName={item.title}
+                Info={item.memo}
+              />
+            ))
+          : "There are no holidays"}
+        <br />
+      </div>
     </div>
   );
 }

@@ -1,0 +1,47 @@
+@import "../Variables/variables";
+
+.HolidayCard{
+    background: #fff;
+    padding: 20px;
+    margin: 1em auto;
+    border-radius: $borders;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    width: 80%;
+
+    .frame{
+      display: flex;
+      
+    }
+
+    img{
+          
+      width: 300px;
+      height: 200px;
+    }
+
+    ul{
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+
+      li{
+        margin-bottom: 10px;
+      
+        strong{
+          display: inline-block;
+          margin-left: max(16px);
+          margin-top: 10px;
+          font-size: 24px;
+
+          
+        }
+
+        .subtitle{
+            font-size: 16px;
+        }
+
+        
+      }
+
+    }
+}
