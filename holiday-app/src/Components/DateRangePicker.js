@@ -51,7 +51,7 @@ export const DateRangePicker = ({
   const handleSelect = (event) => {
     // console.log(event.selection.startDate);
     console.log(event);
-    //setRange([event.selection]);
+    setRange([event[0]]);
 
     // console.log(`${format(range[0].startDate, "yyyy-MM-dd")}`);
     // console.log(`${format(range[0].endDate, "yyyy-MM-dd")}`);
