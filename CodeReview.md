@@ -1,5 +1,13 @@
 # Code Review 22.01.23
 
+## Git
+When working in teams on an app consider clear branch naming conventions
+
+ex:
+
+almog-feature-api_service
+rivka-style-main_page
+
 ## Project readme
 * Add some format and style
 * Add an english section
