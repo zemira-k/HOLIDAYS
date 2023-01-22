@@ -11,6 +11,7 @@ let ImageUrl = {
   Kippur: "https://www.hebcal.com/i/is/800/1061644482.jpg",
   Sukkot: "https://images.unsplash.com/photo-1571086180519-9c1fea323612?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
   Atzeret: "https://cdn.bethamisrael.org/wp-content/uploads/2022/08/shemini-atzeret.jpeg",
+  Purim: "https://elima.org.il/wp-content/uploads/2020/03/36.jpg",
   Simchat: "https://images.unsplash.com/photo-1661919858163-6d56dc4bec97?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1126&q=80",
   Sigd: "https://images.jpost.com/image/upload/f_auto,fl_lossy/t_JD_ArticleMainImageFaceDetect/475543",
   Chanukah: "https://images.unsplash.com/photo-1612375411938-6be39138a883?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
