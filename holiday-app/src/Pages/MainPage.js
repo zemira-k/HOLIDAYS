@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import axios from "axios";
 import CardGrid from "../Components/CardGrid";
 import ImageUrl from "../HolidaysImages";
 import HolidayDate from "../Styles/HolidayDate.scss";
+import DateRangePicker from "../Components/DateRangePicker.js";
 
 export default function MainPage() {
   const [HolidaysInRange, setHolidaysInRange] = useState([]);
@@ -31,14 +32,14 @@ export default function MainPage() {
     }
   };
 
-  const StartDateChanged = (event) => {
-    setStartDate(event.target.value);
-  };
-  const EndDateChanged = (event) => {
-    setEndDate(event.target.value);
-  };
   const SearchHolidays = () => {
     // DIANA --> here I would validate that startDate is earlier then endDate
+    console.log(
+      "Main page 44, start date: ",
+      StartDate,
+      " end date: ",
+      EndDate
+    );
     GetHebrewDates(StartDate, EndDate);
   };
   const ResetData = () => {
@@ -50,9 +51,17 @@ export default function MainPage() {
     <div>
       <div className="HolidayDate">
         <div className="center">
-          <header>Pick Date</header>
-          <h1>DATES FORMAT "YYYY-MM-DD"</h1>
-          <input
+          <header>Holidays Search</header>
+          <h3>Pick Date:</h3>
+
+          <DateRangePicker
+            setStartDate={setStartDate}
+            setEndDate={setEndDate}
+            startDate={StartDate}
+            endDate={EndDate}
+          />
+
+          {/* <input
             type="text"
             placeholder="Start Date"
             onChange={StartDateChanged}
@@ -61,7 +70,8 @@ export default function MainPage() {
             type="text"
             placeholder="End Date"
             onChange={EndDateChanged}
-          ></input>
+          ></input> */}
+
           <button className="button-85" role="button" onClick={SearchHolidays}>
             SEARCH HOLIDAYS
           </button>
