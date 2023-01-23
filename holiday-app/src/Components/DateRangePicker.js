@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import format from "date-fns/format";
 import { DateRange } from "react-date-range";
 import { addDays } from "date-fns";
-import DatePicker from "../Styles/DatePicker.scss";
+import DatePicker from "../styles/DatePicker.scss";
 
 import "react-date-range/dist/styles.css"; // main style file
 import "react-date-range/dist/theme/default.css"; // theme css file
