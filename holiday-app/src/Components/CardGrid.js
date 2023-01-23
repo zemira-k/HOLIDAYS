@@ -18,6 +18,8 @@ const CardGrid = (props) => {
   return (
     <div className="HolidayCard">
       <div className="frame">
+        {/* LastDay={item.endDate}
+        firstDat={item.startDate} */}
         <img src={props.ImageLink} alt="Card image cap"></img>
         <ul>
           <li>
@@ -27,7 +29,11 @@ const CardGrid = (props) => {
             <strong>{props.EngName}</strong>
           </li>
           <li>
-            <strong className="subtitle">{props.Date}</strong>
+            <strong className="subtitle">
+              {props.firstDat === props.LastDay
+                ? props.firstDat
+                : `${props.firstDat} to ${props.LastDay}`}
+            </strong>
           </li>
           <li>
             <strong className="subtitle">{props.Info}</strong>

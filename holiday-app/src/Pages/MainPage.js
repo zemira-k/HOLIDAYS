@@ -11,14 +11,48 @@ export default function MainPage() {
   const [EndDate, setEndDate] = useState("");
 
   function setImage(tmpImagesArray) {
-    for (let key in tmpImagesArray) {
-      for (let key2 in ImageUrl) {
-        if (tmpImagesArray[key].title.includes(key2)) {
-          tmpImagesArray[key]["ImageLink"] = ImageUrl[key2];
+    let tmpObj = {};
+    let tmpArr = [];
+    for (let index = 0; index < tmpImagesArray.length; index++) {
+      try {
+        tmpObj = tmpImagesArray[index];
+        tmpObj["startDate"] = tmpImagesArray[index].date;
+        tmpObj["year"] = tmpImagesArray[index].date.slice(0, 4);
+        tmpObj["endDate"] = tmpImagesArray[index].date;
+        for (let holidayName in ImageUrl) {
+          if (tmpObj.title.includes(holidayName)) {
+            tmpObj.title = holidayName;
+            tmpObj.hebrew = ImageUrl[holidayName][1];
+          }
         }
+        if (index > 0) {
+          if (
+            tmpArr[tmpArr.length - 1].title.includes(tmpObj.title) &&
+            tmpArr[tmpArr.length - 1].year === tmpObj.year
+          ) {
+            tmpArr[tmpArr.length - 1].endDate = tmpObj.date;
+          } else {
+            for (let key2 in ImageUrl) {
+              if (tmpObj.title.includes(key2)) {
+                tmpObj["ImageLink"] = ImageUrl[key2][0];
+              }
+            }
+            tmpArr.push(tmpObj);
+          }
+        }
+        if (index === 0) {
+          for (let key2 in ImageUrl) {
+            if (tmpObj.title.includes(key2)) {
+              tmpObj["ImageLink"] = ImageUrl[key2][0];
+            }
+          }
+          tmpArr.push(tmpObj);
+        }
+      } catch (error) {
+        console.log("error: ", error);
       }
     }
-    setHolidaysInRange(tmpImagesArray);
+    setHolidaysInRange(tmpArr);
   }
 
   const GetHebrewDates = async (startDate, endDate) => {
@@ -86,9 +120,11 @@ export default function MainPage() {
         {Object.keys(HolidaysInRange).length
           ? HolidaysInRange.map((item, ind) => (
               <CardGrid
+                LastDay={item.endDate}
                 key={ind}
                 HebName={item.hebrew}
                 Date={item.date}
+                firstDat={item.startDate}
                 ImageLink={item.ImageLink}
                 EngName={item.title}
                 Info={item.memo}
