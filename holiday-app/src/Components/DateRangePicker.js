@@ -47,6 +47,8 @@ export const DateRangePicker = ({
 
   // on date change, store date in state
   const handleSelect = (event) => {
+    let startDate = event[0].startDate;
+    let endDate = event[0].endDate;
     // console.log(event.selection.startDate);
     console.log(event);
     setRange([event[0]]);
@@ -54,8 +56,12 @@ export const DateRangePicker = ({
     // console.log(`${format(range[0].startDate, "yyyy-MM-dd")}`);
     // console.log(`${format(range[0].endDate, "yyyy-MM-dd")}`);
 
-    setStartDate(`${format(event[0].startDate, "yyyy-MM-dd")}`);
-    setEndDate(`${format(event[0].endDate, "yyyy-MM-dd")}`);
+    setStartDate(`${format(startDate, "yyyy-MM-dd")}`);
+    setEndDate(`${format(endDate, "yyyy-MM-dd")}`);
+
+    if (startDate != null && startDate != endDate && endDate != null) {
+      setOpen(false);
+    }
   };
 
   return (
