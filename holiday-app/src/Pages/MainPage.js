@@ -1,9 +1,9 @@
 import React, { useEffect, useRef, useState } from "react";
 import axios from "axios";
-import CardGrid from "../Components/CardGrid";
+import CardGrid from "../components/CardGrid";
 import ImageUrl from "../HolidaysImages";
-import HolidayDate from "../Styles/HolidayDate.scss";
-import DateRangePicker from "../Components/DateRangePicker.js";
+import HolidayDate from "../styles/HolidayDate.scss";
+import DateRangePicker from "../components/DateRangePicker.js";
 
 export default function MainPage() {
   const [HolidaysInRange, setHolidaysInRange] = useState([]);
