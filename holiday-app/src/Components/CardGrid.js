@@ -1,5 +1,5 @@
 import React from "react";
-import HolidayCard from "../Styles/HolidayCard.scss";
+import HolidayCard from "../styles/HolidayCard.scss";
 /*
 npm i bootstrap
 npm i reactstrap react react-dom

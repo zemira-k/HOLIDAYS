@@ -1,8 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import format from "date-fns/format";
 import { DateRange } from "react-date-range";
-import { addDays } from "date-fns";
-import DatePicker from "../Styles/DatePicker.scss";
 
 import "react-date-range/dist/styles.css"; // main style file
 import "react-date-range/dist/theme/default.css"; // theme css file
@@ -34,7 +32,7 @@ export const DateRangePicker = ({
   // Hide dropdown calendar on ESC key press
   const hideOnEscape = (e) => {
     console.log(e.key);
-    if (e.key == "Escape") {
+    if (e.key === "Escape") {
       setOpen(false);
     }
   };
